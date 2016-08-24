@@ -398,7 +398,8 @@ function (angular, _, sdk, dateMath, kbn) {
       if (target.groupByTags) {
         query.group_by.push({
           name: "tag",
-          tags: _.map(angular.copy(target.groupByTags), function(tag) { return self.templateSrv.replace(tag); })
+          //tags: _.map(angular.copy(target.groupByTags), function(tag) { return self.templateSrv.replace(tag); })
+          tags:currentTemplateValue(angular.copy(target.groupByTags), self.templateSrv, options.scopedVars)
         });
       }
 
